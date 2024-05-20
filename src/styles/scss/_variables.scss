@@ -1,0 +1,107 @@
+//mine custom variables
+$templateBordersColor: #eeeeee;
+
+$customDownArrow: "data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>";
+
+@font-face {
+  font-family: SkModernistBold;
+  src: url("../../assets/fonts/Sk-Modernist-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: SkModernistMono;
+  font-weight: bold;
+  src: url("../../assets/fonts/Sk-Modernist-Mono.otf") format("opentype");
+}
+
+@font-face {
+  font-family: SkModernistRegular;
+  font-weight: bold;
+  src: url("../../assets/fonts/Sk-Modernist-Regular.otf") format("opentype");
+}
+
+$fontFamilyBold: SkModernistBold;
+$fontFamilyMono: SkModernistMono;
+$fontFamilyRegu: SkModernistRegular;
+
+//popover
+$popoverColor: #a288e3;
+
+// for all buttons
+$DarkGreen: #439775;
+$BluishGreen: #eefcf8;
+//dashboardStatsBoxesColor
+$Green: #eefcef;
+$Blue: #eaeffa;
+$Orange: #fcf0e8;
+$Danger: #f5222d;
+// dark gray
+$Darkgray: #1f2221;
+
+//Neutrals
+$NeutralsPureWhite: #ffffff;
+$NeutralsWarmBlack: #080908;
+
+//Primary
+$PrimaryBlue: #0f88f9;
+$PrimaryAqua: #cbfaf8;
+$PrimaryRoyal: #112981;
+$PrimaryGreen: #00794f;
+
+//Secondary
+$SecondaryBlue: #edf6ff;
+$SecondaryAqua: #efffff;
+$SecondaryRed: #ffc1c1;
+$SecondaryOrange: #ffe4bc;
+
+//Grey Scale
+$Gray3: #dcdddc;
+$GreyScale75: #484848;
+$GreyScale50: #8f8f8f;
+$GreyScale25: #c4c4c4;
+$GreyScale10: #f1f1f1;
+$PrimaryGrey: #080908a6;
+$SecondaryGrey: #0809080f;
+
+:export {
+  DarkGreen: $DarkGreen;
+  DarkGray: $Darkgray;
+
+  fontFamilyBold: $fontFamilyBold;
+  fontFamilyMono: $fontFamilyMono;
+  fontFamilyRegu: $fontFamilyRegu;
+  templateBordersColor: $templateBordersColor;
+
+  customDownArrow: $customDownArrow;
+
+  //dashboardStatsBoxesColor
+  Green: $Green;
+  Blue: $Blue;
+  Orange: $Orange;
+  Danger: $Danger;
+
+  //Neutrals
+  NeutralsPureWhite: $NeutralsPureWhite;
+  NeutralsWarmBlack: $NeutralsWarmBlack;
+
+  //Primary
+  PrimaryBlue: $PrimaryBlue;
+  PrimaryAqua: $PrimaryAqua;
+  PrimaryRoyal: $PrimaryRoyal;
+  PrimaryGreen: $PrimaryGreen;
+
+  //Secondary
+  SecondaryBlue: $SecondaryBlue;
+  SecondaryAqua: $SecondaryAqua;
+  SecondaryRed: $SecondaryRed;
+  SecondaryOrange: $SecondaryOrange;
+
+  //Grey Scale
+  Gray3: $Gray3;
+  GreyScale75: $GreyScale75;
+  GreyScale50: $GreyScale50;
+  GreyScale25: $GreyScale25;
+  GreyScale10: $GreyScale10;
+  PrimaryGrey: $PrimaryGrey;
+  SecondaryGrey: $SecondaryGrey;
+}
