@@ -1,0 +1,36 @@
+@import "variables";
+
+.ant-layout.custom-layout {
+  & .ant-layout-header.custom-header {
+    background-color: white;
+    & .ant-tabs.ant-tabs-top.custom-topBar {
+      & .ant-tabs-nav {
+        &::before {
+          display: none;
+        }
+        & .ant-tabs-extra-content {
+          margin-right: 16px;
+        }
+        & .ant-tabs-nav-wrap {
+          & .ant-tabs-nav-list {
+            & .ant-tabs-tab.ant-tabs-tab-active {
+              :hover {
+                color: pink;
+              }
+              z-index: 2;
+              & .ant-tabs-tab-btn {
+                color: pink;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .ant-layout-content.custom-content {
+  }
+
+  & .ant-layout-footer.custom-footer {
+  }
+}

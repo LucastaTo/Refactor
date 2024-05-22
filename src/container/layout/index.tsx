@@ -1,54 +1,69 @@
-import React from 'react';
-import {  Layout, Menu } from 'antd';
+import React, { useMemo, useState } from "react";
+import { Button, Image, Layout, Menu, Tabs } from "antd";
+import { PiPenNibStraight } from "react-icons/pi";
+import { FaUserGraduate } from "react-icons/fa";
 
 const { Header, Content, Footer } = Layout;
 
 const items = [
-  {label: "Faculty", icon: 
-
-  Institution
-  
-  Venue
-  
-  Concept"}
-]
-
-const items = new Array(3).fill(null).map((_, index) => ({
+  { label: "Faculty", icon: <FaUserGraduate /> },
+  { label: "Institution", icon: <PiPenNibStraight /> },
+  { label: "Venue", icon: <PiPenNibStraight /> },
+  { label: "Concept", icon: <PiPenNibStraight /> },
+].map((item, index) => ({
   key: String(index + 1),
-  label: `nav ${index + 1}`,
+  label: (
+    <>
+      <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        {item.icon} {item.label}
+      </span>
+    </>
+  ),
+  children: `Content of tab ${index}`,
 }));
 
+const OperationsSlot: Record<PositionType, React.ReactNode> = {
+  left: (
+    <Button className="tabs-extra-demo-button">
+      <img
+        height={40}
+        width={40}
+        src="https://academic.online/static/media/logo4.f83fb61768e8c265f7d4.png"
+      />
+    </Button>
+  ),
+  right: <Button>Right Extra Action</Button>,
+};
+
+type PositionType = "left" | "right";
+
 interface IProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const LayoutContainer: React.FC<IProps> = ({children}) => {
+const LayoutContainer: React.FC<IProps> = ({ children }) => {
+  const position: PositionType[] = ["left", "right"];
+
+  const slot = useMemo(() => {
+    if (position.length === 0) return null;
+
+    return position.reduce(
+      (acc, direction) => ({ ...acc, [direction]: OperationsSlot[direction] }),
+      {}
+    );
+  }, [position]);
 
   return (
-    <Layout>
-      <Header
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 1,
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
+    <Layout className="custom-layout">
+      <Header className="custom-header">
+        <Tabs
+          className="custom-topBar"
+          tabBarExtraContent={slot}
           items={items}
-          style={{ flex: 1, minWidth: 0 }}
         />
       </Header>
-      <Content style={{ padding: '0 48px' }}>
-        {children}
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>
+      <Content className="custom-content">{children}</Content>
+      <Footer className="custom-footer">
         Ant Design ©{new Date().getFullYear()} Created by Ant UED
       </Footer>
     </Layout>
