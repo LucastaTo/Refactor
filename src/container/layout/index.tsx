@@ -3,6 +3,16 @@ import {  Layout, Menu } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
+const items = [
+  {label: "Faculty", icon: 
+
+  Institution
+  
+  Venue
+  
+  Concept"}
+]
+
 const items = new Array(3).fill(null).map((_, index) => ({
   key: String(index + 1),
   label: `nav ${index + 1}`,
