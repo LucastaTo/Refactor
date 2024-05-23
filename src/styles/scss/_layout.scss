@@ -2,11 +2,48 @@
 
 .ant-layout.custom-layout {
   & .ant-layout-header.custom-header {
+    padding: 0 3vw;
     background-color: white;
-    & .ant-tabs.ant-tabs-top.custom-topBar {
-      & .ant-tabs-nav {
-        &::before {
-          display: none;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d6d4d4;
+    & .custom-topBar {
+      align-items: center;
+      display: flex;
+      height: 9.0909090909vh;
+      justify-content: space-between;
+      padding: 0 3vw;
+      width: 100%;
+      & .left-topBar {
+        display: flex;
+        height: 100%;
+        ul {
+          background-color: transparent;
+          li {
+            font-size: 18px;
+            &.ant-menu-item-selected {
+              background-color: transparent;
+              color: #ff006e;
+            }
+
+            color: #000;
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            font-weight: 700;
+            height: 100%;
+            margin-right: 20px;
+          }
+        }
+        img {
+          height: 90%;
+          margin-right: 80px;
+          border-style: none;
+          vertical-align: middle;
         }
         & .ant-tabs-extra-content {
           margin-right: 16px;
@@ -25,10 +62,36 @@
           }
         }
       }
+
+      & .right-topBar {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        width: 400px;
+        height: 40px;
+        & .custom-search-input {
+          width: 100%;
+          font-size: 14px;
+          height: 32px;
+          & .ant-select-selector {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+        & .options {
+          & .ant-select-selector {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+      }
     }
   }
 
   & .ant-layout-content.custom-content {
+    min-height: 90.9090909091vh;
+    padding-top: 40px;
+    width: 80%;
   }
 
   & .ant-layout-footer.custom-footer {
