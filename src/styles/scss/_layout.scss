@@ -18,9 +18,12 @@
       justify-content: space-between;
       padding: 0 3vw;
       width: 100%;
+      & .btn-collapsed {
+        display: none;
+      }
       & .left-topBar {
         display: flex;
-        
+
         height: 100%;
         ul {
           background-color: transparent;
@@ -96,5 +99,17 @@
   }
 
   & .ant-layout-footer.custom-footer {
+  }
+}
+
+@media (max-width: 668px) {
+  .custom-layout {
+    & .ant-layout-header.custom-header {
+      & .custom-topBar {
+        & .btn-collapsed {
+          display: block !important;
+        }
+      }
+    }
   }
 }
