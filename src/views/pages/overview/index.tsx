@@ -1,4 +1,6 @@
 import React from "react";
+import SearchInput from "../../../reusable/search-input";
+import { Select } from "antd";
 
 const OverView: React.FC = () => {
   const concepts = [
@@ -42,6 +44,24 @@ const OverView: React.FC = () => {
               <p>{concepts.name}</p>
             </div>
           ))}
+        </div>
+        <p className="title">Discover more</p>
+        <div className="search">
+        <SearchInput
+          placeholder="input search text"
+          className="custom-search-input"
+        />
+        <Select
+          defaultValue="lucy"
+          className="options"
+          style={{ width: 120 }}
+          options={[
+            { value: "jack", label: "Jack" },
+            { value: "lucy", label: "Lucy" },
+            { value: "Yiminghe", label: "yiminghe" },
+            { value: "disabled", label: "Disabled", disabled: true },
+          ]}
+        />
         </div>
       </div>
     </div>

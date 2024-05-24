@@ -20,6 +20,7 @@
       width: 100%;
       & .left-topBar {
         display: flex;
+        
         height: 100%;
         ul {
           background-color: transparent;
@@ -41,6 +42,7 @@
         }
         img {
           height: 90%;
+          padding: 16px 0 7px 0;
           margin-right: 80px;
           border-style: none;
           vertical-align: middle;
@@ -91,7 +93,6 @@
   & .ant-layout-content.custom-content {
     min-height: 90.9090909091vh;
     padding-top: 40px;
-    width: 80%;
   }
 
   & .ant-layout-footer.custom-footer {
