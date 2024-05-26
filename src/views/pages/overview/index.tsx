@@ -1,8 +1,9 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import SearchInput from "../../../reusable/search-input";
-import { Col, Row, Select, Typography } from "antd";
+import { Button, Col, Row, Select, Typography } from "antd";
 import FacultyCard, { FacultiesIProps } from "./components/faculty-card";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { RiArrowRightCircleFill, RiArrowRightCircleLine } from "react-icons/ri";
 
 const OverView: React.FC = () => {
   const concepts = [
@@ -207,6 +208,16 @@ const OverView: React.FC = () => {
     },
   ];
 
+  const [isBouncing, setIsBouncing] = useState(false);
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsBouncing((prevState: boolean) => !prevState);
+  };
+
   return (
     <div className="dashboard-container">
       <div className="search-dashboard">
@@ -237,43 +248,166 @@ const OverView: React.FC = () => {
             className="options"
             style={{ width: 120 }}
             options={[
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "yiminghe" },
-              { value: "disabled", label: "Disabled", disabled: true },
+              { value: "Faculty", label: "Faculty" },
+              { value: "Institutions", label: "Institutions" },
+              { value: "Concepts", label: "Concepts" },
+              { value: "Venue", label: "Venue" },
             ]}
           />
         </div>
       </div>
       <div className="dashboard-content">
-        <div className="institutions"></div>
-        <div className="faculties">
-          <span className="more">
-            <Typography.Text>Browse faculty</Typography.Text>{" "}
-            <AiOutlineArrowRight />
-          </span>
-          <Row gutter={[16, 16]}>
-            {faculties.slice(0, 3).map((faculty, index) => (
-              <Col
-                span={8}
-                style={{
-                  justifyContent: index !== 1 ? "center" : "normal",
-                }}
-              >
-                <FacultyCard
-                  styles={{ width: index === 1 ? "100%" : "300px" }}
-                  skills={faculty.skills}
-                  avatar={faculty.avatar}
-                  id={faculty.id}
-                  description={faculty.description}
-                  name={faculty.name}
-                  major={faculty.major}
-                  university={faculty.university}
-                />
-              </Col>
-            ))}
-          </Row>
-        </div>
+        <Row gutter={[16, 16]}>
+          <Col span={24}>
+            <div className="faculties">
+              <span className="more">
+                <Typography.Text>Browse faculty</Typography.Text>{" "}
+                <AiOutlineArrowRight />
+              </span>
+              <Row gutter={[16, 16]}>
+                {faculties.slice(0, 3).map((faculty, index) => (
+                  <Col
+                    span={8}
+                    style={{
+                      justifyContent: index !== 1 ? "center" : "normal",
+                    }}
+                  >
+                    <FacultyCard
+                      styles={{ width: index === 1 ? "100%" : "300px" }}
+                      skills={faculty.skills}
+                      avatar={faculty.avatar}
+                      id={faculty.id}
+                      description={faculty.description}
+                      name={faculty.name}
+                      major={faculty.major}
+                      university={faculty.university}
+                    />
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          </Col>
+          <Col span={24}>
+            <div className="concepts">
+              <Row gutter={[16, 32]}>
+                <Col span={24} className="title">
+                  <Typography.Text>
+                    Join 262 million academics and researchers
+                  </Typography.Text>{" "}
+                </Col>
+                <Col>
+                  <Row gutter={16} className="concepts-row">
+                    <Col span={7} className="concepts-box">
+                      <div className="concepts-image-container">
+                        <img
+                          className="bounded-image"
+                          loading="lazy"
+                          src="//a.academia-assets.com/images/landing/track-impact.svg"
+                        />
+                      </div>
+                      <h2 className="text-white u-fw500 u-lineHeight1_2">
+                        Track your impact
+                      </h2>
+                      <p className="text-white u-fs16">
+                        Share your work with other academics, grow your audience
+                        and track your impact on your field with our robust
+                        analytics
+                      </p>
+                    </Col>
+                    <Col span={7} className="concepts-box">
+                      <div className="concepts-image-container">
+                        <img
+                          className="bounded-image"
+                          loading="lazy"
+                          src="//a.academia-assets.com/images/landing/discover-research.svg"
+                        />
+                      </div>
+                      <h2 className="text-white u-fw500 u-lineHeight1_2">
+                        Discover new research
+                      </h2>
+                      <p className="text-white u-fs16">
+                        Get access to millions of research papers and stay
+                        informed with the important topics around the world
+                      </p>
+                    </Col>
+                    <Col span={7} className="concepts-box">
+                      <div className="concepts-image-container">
+                        <img
+                          className="bounded-image"
+                          loading="lazy"
+                          src="//a.academia-assets.com/images/landing/publish-work.svg"
+                        />
+                      </div>
+                      <h2 className="text-white u-fw500 u-lineHeight1_2">
+                        Publish your work
+                      </h2>
+                      <p className="text-white u-fs16">
+                        Publish your research with fast and rigorous service
+                        through Academia.edu Publishing. Get instant worldwide
+                        dissemination of your work
+                      </p>
+                    </Col>
+                  </Row>
+                </Col>
+                <Col className="concepts-btn">
+                  <Button>Show more</Button>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+          <Col span={24}>
+            <div className="institutions">
+              <Row gutter={[16, 32]}>
+                <Col span={24} className="title">
+                  <Typography.Text>
+                    Used by academics at over 15,000 institutions
+                  </Typography.Text>{" "}
+                </Col>
+                <Col span={24} className="images">
+                  <img
+                    src="https://media.academic.online/institutions_images/3c50db92053f15e40fa77f3d61640ce714741d4374287599f43303bf/logo_full.png"
+                    alt="logo"
+                    className="logo"
+                    height={55}
+                    width={140}
+                    style={{ opacity: 0.5 }}
+                  />
+                  <img
+                    src="https://media.academic.online/institutions_images/c8ce0532e06f11795efc722091f5ad986d7d98148a1fe69bfd66f623/logo_full.png"
+                    alt="logo"
+                    className="logo"
+                    height={55}
+                    width={140}
+                    style={{ opacity: 0.5 }}
+                  />
+                  <img
+                    src="https://media.academic.online/institutions_images/71c4c4cec6db4266c8f497a5582e5fd3a00267ac05518d535f0327e4/logo_full.png"
+                    alt="logo"
+                    className="logo"
+                    height={55}
+                    width={140}
+                    style={{ opacity: 0.5 }}
+                  />
+                </Col>
+                <Col span={24} className="more">
+                  <img
+                    width="100%"
+                    src="https://media.istockphoto.com/id/1366724877/vi/anh/quan-%C4%91i%E1%BB%83m-ph%C3%ADa-sau-c%E1%BB%A7a-gi%C3%A1o-vi%C3%AAn-tr%C6%B0%E1%BB%9Fng-th%C3%A0nh-n%C3%B3i-chuy%E1%BB%87n-v%E1%BB%9Bi-h%E1%BB%8Dc-sinh-c%E1%BB%A7a-m%C3%ACnh-trong-b%C3%A0i-gi%E1%BA%A3ng.jpg?s=612x612&w=0&k=20&c=k3etIBb-97jZnkPv4ZvwKayGG9m2Nr1PGECJD1gckiE="
+                    alt="logo"
+                  />
+                  <div className="center-con">
+                    <Button
+                      className={`round ${isBouncing ? "bounceAlpha" : ""}`}
+                      onClick={handleClick}
+                    >
+                      <AiOutlineArrowRight />
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
       </div>
     </div>
   );

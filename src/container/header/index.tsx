@@ -60,10 +60,11 @@ const HeaderContainer: React.FC = () => {
             className="options"
             style={{ width: 120 }}
             options={[
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "yiminghe" },
-              { value: "disabled", label: "Disabled", disabled: true },
+              { value: "All", label: "All" },
+              { value: "Faculty", label: "Faculty" },
+              { value: "Institutions", label: "Institutions" },
+              { value: "Concepts", label: "Concepts" },
+              { value: "Venue", label: "Venue" },
             ]}
           />
         </div>

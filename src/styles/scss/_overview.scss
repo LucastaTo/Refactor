@@ -1,7 +1,9 @@
 @import "variables";
+$bounce-duration: 1.4s;
 
 .dashboard-container {
   padding: 0 8em;
+  // Search
   & .search-dashboard {
     align-items: center;
     display: flex;
@@ -74,7 +76,10 @@
       }
     }
   }
+
+  // Content
   & .dashboard-content {
+    // Faculties
     & .faculties {
       & .ant-col {
         display: flex;
@@ -147,7 +152,197 @@
         }
       }
     }
+
+    // Venues
+    & .venues {
+      & .ant-col {
+        display: flex;
+        justify-content: center;
+      }
+      & .venues-card {
+        padding-left: 12.5px;
+        padding-right: 12.5px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 #00000026;
+        cursor: pointer;
+        min-height: 186px;
+        padding: 15px 10px;
+        width: 100%;
+        & .venues-title-wrapper {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+          & .venues-avatar {
+            margin: 24px;
+            border: 4px solid #2b3654;
+            border-radius: 100%;
+          }
+          & .faculty-name {
+            font-weight: 700;
+            font-size: 24px;
+            color: #ff006e;
+          }
+          & .faculty-sub-title {
+            font-size: 16px;
+          }
+          & .faculaty-line {
+            border: 1px solid;
+          }
+        }
+
+        & .faculty-description-wrapper {
+          max-height: 200px;
+          overflow: hidden;
+          & .faculty-description {
+            font-size: 20px;
+            display: flex;
+            margin-bottom: 20px;
+            max-height: 200px;
+            text-overflow: ellipsis;
+          }
+        }
+
+        & .faculty-skill-wrapper {
+          & .faculty-skill {
+            background-color: rgb(58 134 255 / 7%);
+            cursor: pointer;
+            white-space: nowrap;
+            color: #5c5b59;
+            margin-inline-end: 8px;
+            padding-inline: 7px;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            opacity: 1;
+            transition: all 0.2s;
+            text-align: start;
+            position: relative;
+            width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 26px;
+            font-size: 20px;
+            height: 32px;
+          }
+        }
+      }
+    }
+
+    // Concepts
+    & .concepts {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & .title {
+        text-align: center;
+        span {
+          font-size: 40px;
+          font-weight: 700;
+        }
+        margin-top: 30px;
+      }
+      & .concepts-row {
+        margin-left: 130px !important;
+        & .concepts-box {
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          background: #2b3654;
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+          border-radius: 4px;
+          margin: 12px 8px;
+          padding: 40px 32px !important;
+          gap: 10px;
+          color: white;
+          align-items: center;
+          & .concepts-image-container {
+            text-align: center;
+            width: 100%;
+            height: 64px;
+          }
+        }
+      }
+      & .concepts-btn {
+        margin: auto;
+        & .ant-btn {
+          background-color: #0057eb;
+          color: #fff;
+          border: solid 1px transparent;
+          align-items: center;
+          cursor: pointer;
+          display: flex;
+          font-family: "Roboto", Helvetica, Arial, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          justify-content: center;
+          line-height: 20px;
+          border-radius: 4px;
+          border: solid 1px transparent;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+          font-size: 16px;
+          height: 54px;
+          padding: 0 20px;
+          background-color: #e4ebf7;
+          color: #0645b1;
+          &:hover {
+            background-color: #0057eb;
+            color: #fff;
+            border: solid 1px transparent;
+          }
+        }
+      }
+    }
+
+    // Institutions
     & .institutions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & .title {
+        text-align: center;
+        span {
+          font-size: 40px;
+          font-weight: 700;
+        }
+        margin-top: 30px;
+      }
+      & .images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 30px;
+      }
+      .more {
+        width: 100%;
+        position: relative;
+
+        &:hover {
+          .center-con {
+            opacity: 1;
+          }
+
+          img {
+            filter: blur(4px);
+          }
+        }
+
+        .center-con {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .round {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
@@ -171,4 +366,41 @@
     margin-top: 5px;
   }
   display: inline-flex;
+}
+
+.center-con {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  & .ant-btn {
+    width: 100px;
+    height: 100px;
+    svg {
+      width: 40px;
+      height: 40px;
+      color: white;
+    }
+  }
+  .round {
+    background-color: #ff006e;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: moveRight 1s infinite alternate;
+  }
+
+  @keyframes moveRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 }

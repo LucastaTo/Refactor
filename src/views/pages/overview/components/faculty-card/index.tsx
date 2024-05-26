@@ -63,7 +63,7 @@ const FacultyCard: React.FC<FacultiesIProps> = ({
     const descriptionElement = descriptionRef.current;
     if (descriptionElement) {
       const textContent = descriptionElement.textContent;
-      if (textContent)
+      if (textContent) {
         if (descriptionElement.scrollHeight > 200) {
           const slicedText = textContent.slice(
             0,
@@ -78,6 +78,7 @@ const FacultyCard: React.FC<FacultiesIProps> = ({
           setText(textContent);
           setShowTooltip(false);
         }
+      }
     }
   }, []);
 
